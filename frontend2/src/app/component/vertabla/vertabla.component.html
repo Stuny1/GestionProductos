@@ -1,0 +1,56 @@
+<div class="container d-flex flex-columncontainer d-flex h-100 flex-column">
+  <div class="row justify-content-center">
+    <div class="col-12 mt-5">
+      <h3>Ver Tabla</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6 mt-5 align-self-center">
+      <select [(ngModel)]="id" class="custom-select">
+        <option selected value="0" disabled>Seleccionar Tabla</option>
+        <ng-container *ngFor="let dato of tablas">
+          <option [value]="dato.t_id">{{dato.Nombre_Tabla}}</option>
+        </ng-container>
+
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-2 mb-10 align-self-center">
+      <button type="button" (click)="verT()" data-toggle="modal" data-target="#ModalVer" class="btn btn-primary mt-5" style="background-color:#ad2e13;border-color:#ad2e13;">Ver Tabla</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="modal fade" id="ModalVer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="min-width:80vw;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-responsive">
+          <thead class="thead-dark">
+            <tr>
+              <th *ngFor="let cols of col" scope="col">{{cols}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of newTabla">
+              <th *ngFor="let cols of item | keyvalue">{{cols.value}}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

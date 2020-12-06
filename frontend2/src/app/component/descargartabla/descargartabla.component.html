@@ -1,0 +1,23 @@
+<div class="container d-flex flex-columncontainer d-flex h-100 flex-column">
+  <div class="row justify-content-center">
+    <div class="col-12 mt-5">
+      <h3>Descargar Tabla</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6 mt-5 align-self-center">
+      <select [(ngModel)]="id" class="custom-select">
+        <option selected disabled>Seleccionar Tabla</option>
+        <ng-container *ngFor="let dato of tablas">
+          <option [value]="dato.t_id">{{dato.Nombre_Tabla}}</option>
+        </ng-container>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-2 mb-10 align-self-center">
+      <button type="button" class="btn btn-primary mt-5" (click)="Descargar()" style="background-color:#ad2e13;border-color:#ad2e13;">Descargar tabla</button>
+    </div>
+  </div>
+
+</div>

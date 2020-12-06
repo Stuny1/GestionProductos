@@ -1,0 +1,12 @@
+.topleft {
+  position: absolute;
+  top: 8px;
+  font-size: 18px;
+  height: 18vh;
+}
+
+.list-group-item:hover {
+    background-color:#ad2e13;
+    border-color:#ad2e13;
+    color:white;
+}
